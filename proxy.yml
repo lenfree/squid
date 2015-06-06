@@ -12,7 +12,7 @@
     fw_template: proxy
     public_interface: eth1 
     eth1_netmask: 255.255.255.0 # public interface netmask
-    eth1_address: 192.168.2.5 # public interface address
+    eth1_address: 192.168.2.4 # public interface address
     eth1_gateway: 172.20.0.1 # public interface gateway
     eth0_address: 192.168.0.5 # private ip address
     eth0_gateway: 192.168.0.1 # private ip gateway
