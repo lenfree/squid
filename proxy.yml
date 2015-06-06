@@ -16,3 +16,4 @@
     eth1_gateway: 172.20.0.1 # public interface gateway
     eth0_address: 192.168.0.5 # private ip address
     eth0_gateway: 192.168.0.1 # private ip gateway
+    eth0_network: 192.168.0.1/24
