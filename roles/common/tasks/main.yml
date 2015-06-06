@@ -1,0 +1,8 @@
+---
+- name: Install python selinux
+  yum: name=libselinux-python state=latest
+  tags: python
+
+- name: Upgrade all
+  yum: name=* state=latest
+  tags: upgrade

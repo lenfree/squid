@@ -1,0 +1,10 @@
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:LOGDROP - [0:0]
+-A LOGDROP -j LOG --log-prefix "iptables_" --log-level 6 
+-A LOGDROP -j DROP 
+-A INPUT -i eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT 
+-A INPUT -i eth1 -j LOGDROP 
+COMMIT

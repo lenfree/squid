@@ -1,0 +1,4 @@
+---
+- name: Reload network config
+  service: name=network state=restarted
+  tags: network

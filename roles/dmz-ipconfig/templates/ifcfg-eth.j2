@@ -1,0 +1,13 @@
+DEVICE={{ public_interface }}
+ONBOOT=yes
+USERCTL=no
+BOOTPROTO=static
+
+NETMASK={{ eth1_netmask }}
+IPADDR={{ eth1_address }}
+
+PEERDNS=no
+
+check_link_down() {
+ return 1;
+}

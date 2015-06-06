@@ -1,0 +1,7 @@
+---
+- name: Restart network interface
+  service:
+    name: network
+    state: restarted
+    args: "{{ public_interface }}"
+  tags: network

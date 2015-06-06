@@ -1,0 +1,21 @@
+---
+- name: Install squid proxy
+  yum: name=squid state=present
+  tags: proxy
+
+- name: Enable this service
+  service: 
+    name: squid
+    enabled: yes
+    state: started
+  tags: proxy
+
+- name: Upload custom squid file
+  template: 
+    src: squid.conf.j2
+    dest: /etc/squid/squid.conf
+    mode: 0644
+    owner: root
+    group: root
+  notify: restart squid
+  tags: proxy

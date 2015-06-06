@@ -1,0 +1,21 @@
+---
+- name: Enable IPTables
+  service:
+    name: iptables
+    enabled: yes
+    state: started
+  tags: iptables
+
+- name: Ensure correct IPTables rules
+  template:
+    src: iptables_{{ fw_template }}.j2
+    dest: /etc/sysconfig/iptables
+    mode: 0600
+    owner: root
+    group: root
+  tags: iptables
+
+- name: Reload iptables
+  shell: /sbin/iptables-restore < /etc/sysconfig/iptables
+  changed_when: False
+  tags: iptables

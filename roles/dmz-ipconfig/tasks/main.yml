@@ -1,0 +1,16 @@
+---
+- name: Setup public interface
+  template:
+    src: ifcfg-eth.j2
+    dest: "/etc/sysconfig/network-scripts/ifcfg-{{ public_interface }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify: Restart network interface
+  tags: network
+
+- name: Make sure the network interface is up
+  command: "ifup {{ public_interface }}"
+  register: ifup_message
+  changed_when: ifup_message.stdout.find('Determining if ip address') == 0
+  tags: network

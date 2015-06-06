@@ -1,0 +1,12 @@
+---
+
+- name: eth0 static routes
+  template: src=route-eth0.j2 dest=/etc/sysconfig/network-scripts/route-eth0 owner=root group=root mode=0644
+  notify: Reload network config
+  tags: network
+
+- name: eth1 static routes
+  template: src=route-eth1.j2 dest=/etc/sysconfig/network-scripts/route-eth1 owner=root group=root mode=0644
+  notify: Reload network config
+  tags: network
+
